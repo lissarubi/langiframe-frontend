@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css?family=Sen&display=swap');
+html{
+    scroll-behavior: smooth;
+}
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Sen', sans-serif;
+}
+body{
+    background-color: #fcfcfc;
+    padding: 20px;
+}
+nav{
+    font-size: 2.6ch;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    align-items: center;
+    padding: 25px;
+    background-color: #ebebeb;
+}
+.toggle-button{
+    position: absolute;
+    top: .75rem;
+    right: 2rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 21px;
+}
+.toggle-button .bar{
+    height: 3px;
+    width: 100%;
+    background-color: #202020;
+    border-radius: 10px;
+}
+.li{
+  display: inline-block;
+  margin-left: 5vw;
+  padding: 1.2vh;
+  background-color: #00000000;
+  border-radius: 10px;
+  transition: 400ms;
+  font-weight: bold;
+  color: #333;
+}
+.li:hover{
+  background-color: #646ef6;
+}
+ul{
+  margin-left: 50%;
+}
+
+
+@media (max-width: 500px){
+  .toggle-button{
+      display: flex;
+  }
+  .navlinks.active{
+      display: none
+  }
+  nav{    
+      font-size: 2ch;
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: center;
+  }
+  nav.active{
+      display: none;
+  }
+  .li{
+      margin-bottom: 8px;
+  }
+}
+
+@import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@4/distr/fira_code.css);
+
+.ideBox{
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.ide{
+    width: 90vw;
+    height: 50vh;
+    border-radius: 10px;
+    border-style: solid;
+    background-color: #282a36;
+    border-color: #282a36;
+    padding: 10px;
+    font-family: 'Fira Code';
+}
+.buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: black;
+}
+.button{
+    background-color: #fdfdfd;
+    margin-top: 3vh;
+    border-style: solid;
+    border-width: 2px;
+    padding: 7px;
+    border-color: gainsboro;
+    border-radius: 10px;
+    transition: 400ms;
+}
+.button:hover{
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.4);
+}
+.output{
+    margin-top: 7vh;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90vw;
+    height: 50vh;
+    border-style: solid;
+    padding: 7px;
+    border-radius: 10px;
+    background-color: black;
+    border-color: black;
+    color: gainsboro;
+    margin-bottom: 30vh;
+}
+
+.langBox{
+    display: flex;
+    justify-content: center;
+
+}
+
+@supports (font-variation-settings: normal) {
+    .ide { font-family: 'Fira Code VF', monospace; }
+}
+
