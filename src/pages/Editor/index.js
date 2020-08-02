@@ -88,7 +88,7 @@ export default function Editor(){
     async function handleImage(e){
         e.preventDefault()
 
-        const pageUrl = `http://langiframe.herokuapp.com/iframe?lang=${lang}&code=${code}`
+        const pageUrl = `http://langiframe-backend.herokuapp.com/iframe?lang=${lang}&code=${code}`
         
         const output = document.getElementById('output')
         const oldOutput = output.innerHTML
