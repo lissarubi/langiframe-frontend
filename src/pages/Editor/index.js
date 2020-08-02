@@ -39,7 +39,7 @@ export default function Editor(){
 
         let postCode = encodeURIComponent(code)
 
-        let url = `<iframe width="650px" height="650px" style="border-style: solid;" src="http://localhost:3000/iframe?lang=${lang}&code=${postCode}"></iframe>`
+        let url = `<iframe width="650px" height="650px" style="border-style: solid;" src="http://langiframe.herokuapp.com/iframe?lang=${lang}&code=${postCode}"></iframe>`
         console.log(url)
 
         const copyToClipboard = str => {
@@ -88,18 +88,16 @@ export default function Editor(){
     async function handleImage(e){
         e.preventDefault()
 
-        const pageUrl = `http://localhost:3000/iframe?lang=${lang}&code=${code}`
+        const pageUrl = `http://langiframe.herokuapp.com/iframe?lang=${lang}&code=${code}`
         
         const output = document.getElementById('output')
         const oldOutput = output.innerHTML
 
         output.innerHTML = '<strong>Wait please...</strong>'
 
-        const pagePath = await api.post('/print', { pageUrl })
-	console.log(pagePath)
+        const print = await api.post('/print', { pageUrl })
         const link = document.createElement('a');
-	console.log( btoa(unescape(encodeURIComponent(pagePath.data))) )
-        link.href = `data:image/png;base64,${ pagePath.data }`;
+        link.href = `data:image/png;base64,${ print.data.screenshot }`;
         link.download = 'ScreenshotLangIframe.png';
         document.body.appendChild(link);
         link.click();
