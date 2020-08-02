@@ -85,27 +85,6 @@ export default function Editor(){
         }
     }
 
-    async function handleImage(e){
-        e.preventDefault()
-
-        const pageUrl = `http://langiframe.herokuapp.com/iframe?lang=${lang}&code=${code}`
-        
-        const output = document.getElementById('output')
-        const oldOutput = output.innerHTML
-
-        output.innerHTML = '<strong>Wait please...</strong>'
-
-        const print = await api.post('/print', { pageUrl })
-        const link = document.createElement('a');
-        link.href = `data:image/png;base64,${ print.data.screenshot }`;
-        link.download = 'ScreenshotLangIframe.png';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-
-        output.innerHTML = oldOutput
-    }
-
     return(
         <div className="editor-conteiner">
 
@@ -131,7 +110,6 @@ export default function Editor(){
                         />
                         <div className="buttons">
                             <input type="submit" className="button" onClick={handleIframe} value="Export to Iframe"></input>
-                            <button className="button" onClick={handleImage} >Export to Image</button>
                             <div className="button" onClick={exec} >Execute</div>
                         </div>
                     </div>  
