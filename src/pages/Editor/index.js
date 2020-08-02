@@ -95,11 +95,9 @@ export default function Editor(){
 
         output.innerHTML = '<strong>Wait please...</strong>'
 
-        const pagePath = await api.post('/print', { pageUrl })
-	console.log(pagePath)
+        const print = await api.post('/print', { pageUrl })
         const link = document.createElement('a');
-	console.log( btoa(unescape(encodeURIComponent(pagePath.data))) )
-        link.href = `data:image/png;base64,${ pagePath.data }`;
+        link.href = `data:image/png;base64,${ print.data.screenshot }`;
         link.download = 'ScreenshotLangIframe.png';
         document.body.appendChild(link);
         link.click();
