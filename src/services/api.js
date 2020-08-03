@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-    baseURL: "https://langiframe-backend.herokuapp.com/",
+    baseURL: REACT_APP_API_URL,
 })
 
 export default api
